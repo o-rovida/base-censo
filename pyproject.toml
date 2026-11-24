@@ -1,0 +1,10 @@
+[project]
+name = "censo2022-curated-pipeline"
+version = "0.1.0"
+description = "Pipeline curado em Parquet para os Microdados da Amostra do Censo Demografico 2022 (IBGE - Acesso Controlado)"
+requires-python = ">=3.11"
+dependencies = [
+    "duckdb>=1.1.0",
+    "openpyxl>=3.1.5",
+    "pyarrow>=18.0.0",
+]

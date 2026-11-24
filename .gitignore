@@ -1,0 +1,14 @@
+# Microdados brutos e curados do IBGE (Nível Controlado — não redistribuir publicamente)
+*.zip
+data/
+
+# Ambiente Python local
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Arquivos temporários e de sistema
+*.tmp
+.DS_Store
+Thumbs.db

@@ -1,0 +1,201 @@
+{
+  "ufs_validated": 27,
+  "all_uf_row_counts_match_csv": true,
+  "mortalidade_row_count_match_csv": true,
+  "total_pessoas_obt_rows": 21539579,
+  "total_pessoas_csv_rows": 21539579,
+  "total_mortalidade_rows": 430965,
+  "total_mortalidade_csv_rows": 430965,
+  "pk_unique_pessoas_obt": true,
+  "pk_unique_mortalidade": true,
+  "sample_expansion_checks": {
+    "populacao_expandida_soma_p0111": 203080756.0,
+    "domicilios_amostra_unicos": 7689963,
+    "domicilios_expandidos_soma_d0111": 73313618.0,
+    "familias_amostra_unicas": 6550293,
+    "familias_expandidas_soma_f0111": 62037363.76,
+    "obitos_expandidos_soma_m0111": 4026946.29
+  },
+  "unmapped_categorical_values": [
+    {
+      "table": "pessoas_obt",
+      "column": "f0150_familia_identificacao",
+      "unmapped_rows": 2,
+      "sample_values": [
+        "11"
+      ]
+    },
+    {
+      "table": "pessoas_obt",
+      "column": "f0220_familias_conviventes_secundarias_tipologia",
+      "unmapped_rows": 475,
+      "sample_values": [
+        "5"
+      ]
+    }
+  ],
+  "uf_checks": [
+    {
+      "uf": 11,
+      "csv_pessoas": 170240,
+      "parquet_pessoas_obt": 170240,
+      "match": true
+    },
+    {
+      "uf": 12,
+      "csv_pessoas": 116783,
+      "parquet_pessoas_obt": 116783,
+      "match": true
+    },
+    {
+      "uf": 13,
+      "csv_pessoas": 389199,
+      "parquet_pessoas_obt": 389199,
+      "match": true
+    },
+    {
+      "uf": 14,
+      "csv_pessoas": 85986,
+      "parquet_pessoas_obt": 85986,
+      "match": true
+    },
+    {
+      "uf": 15,
+      "csv_pessoas": 833378,
+      "parquet_pessoas_obt": 833378,
+      "match": true
+    },
+    {
+      "uf": 16,
+      "csv_pessoas": 68341,
+      "parquet_pessoas_obt": 68341,
+      "match": true
+    },
+    {
+      "uf": 17,
+      "csv_pessoas": 274941,
+      "parquet_pessoas_obt": 274941,
+      "match": true
+    },
+    {
+      "uf": 21,
+      "csv_pessoas": 797135,
+      "parquet_pessoas_obt": 797135,
+      "match": true
+    },
+    {
+      "uf": 22,
+      "csv_pessoas": 500931,
+      "parquet_pessoas_obt": 500931,
+      "match": true
+    },
+    {
+      "uf": 23,
+      "csv_pessoas": 883087,
+      "parquet_pessoas_obt": 883087,
+      "match": true
+    },
+    {
+      "uf": 24,
+      "csv_pessoas": 440132,
+      "parquet_pessoas_obt": 440132,
+      "match": true
+    },
+    {
+      "uf": 25,
+      "csv_pessoas": 585741,
+      "parquet_pessoas_obt": 585741,
+      "match": true
+    },
+    {
+      "uf": 26,
+      "csv_pessoas": 912267,
+      "parquet_pessoas_obt": 912267,
+      "match": true
+    },
+    {
+      "uf": 27,
+      "csv_pessoas": 347165,
+      "parquet_pessoas_obt": 347165,
+      "match": true
+    },
+    {
+      "uf": 28,
+      "csv_pessoas": 261720,
+      "parquet_pessoas_obt": 261720,
+      "match": true
+    },
+    {
+      "uf": 29,
+      "csv_pessoas": 1612463,
+      "parquet_pessoas_obt": 1612463,
+      "match": true
+    },
+    {
+      "uf": 31,
+      "csv_pessoas": 2582000,
+      "parquet_pessoas_obt": 2582000,
+      "match": true
+    },
+    {
+      "uf": 32,
+      "csv_pessoas": 418200,
+      "parquet_pessoas_obt": 418200,
+      "match": true
+    },
+    {
+      "uf": 33,
+      "csv_pessoas": 1129683,
+      "parquet_pessoas_obt": 1129683,
+      "match": true
+    },
+    {
+      "uf": 35,
+      "csv_pessoas": 3716773,
+      "parquet_pessoas_obt": 3716773,
+      "match": true
+    },
+    {
+      "uf": 41,
+      "csv_pessoas": 1382737,
+      "parquet_pessoas_obt": 1382737,
+      "match": true
+    },
+    {
+      "uf": 42,
+      "csv_pessoas": 947947,
+      "parquet_pessoas_obt": 947947,
+      "match": true
+    },
+    {
+      "uf": 43,
+      "csv_pessoas": 1396115,
+      "parquet_pessoas_obt": 1396115,
+      "match": true
+    },
+    {
+      "uf": 50,
+      "csv_pessoas": 303624,
+      "parquet_pessoas_obt": 303624,
+      "match": true
+    },
+    {
+      "uf": 51,
+      "csv_pessoas": 445147,
+      "parquet_pessoas_obt": 445147,
+      "match": true
+    },
+    {
+      "uf": 52,
+      "csv_pessoas": 796342,
+      "parquet_pessoas_obt": 796342,
+      "match": true
+    },
+    {
+      "uf": 53,
+      "csv_pessoas": 141502,
+      "parquet_pessoas_obt": 141502,
+      "match": true
+    }
+  ]
+}
