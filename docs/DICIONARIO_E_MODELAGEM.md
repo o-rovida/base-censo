@@ -1,6 +1,7 @@
 # Dicionário de Dados e Modelagem — Censo Demográfico 2022 (Dataset Curado)
 
 > **Problema de pesquisa:** *"Quais características demográficas e domiciliares estão associadas às diferentes condições de vida da população brasileira?"*  
+> **Créditos:** Pipeline e documentação elaborados com auxílio do **Google Antigravity**.  
 > **Base de origem:** Microdados da Amostra do Censo Demográfico 2022 — **Acesso Controlado (Nível 2)** ([`microdados_censo_amostra_2022_csv_20261124_094334.zip`](../microdados_censo_amostra_2022_csv_20261124_094334.zip)).  
 > **Referência oficial 100% vinculada a:**
 > - [`Layout_Microdados_CD2022_Controlado.xlsx`](Layout_e_dicionario/Layout_Microdados_CD2022_Controlado.xlsx)

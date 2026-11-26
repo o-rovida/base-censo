@@ -1,0 +1,504 @@
+{
+  "output_file": "data/analytics/censo2022_icv_acm.parquet",
+  "output_bytes": 350988564,
+  "output_size_mb": 334.73,
+  "column_count": 46,
+  "elapsed_seconds": 50.13,
+  "scope_summary": {
+    "filter": "p0130_especie_unidade_visitada = '01 - Domicílio particular permanente ocupado'",
+    "curated_total_rows": 21539579,
+    "kept_rows": 21437261,
+    "kept_pct": 99.52,
+    "excluded_rows": 102318,
+    "excluded_pct": 0.48,
+    "coletivos_rows": 83458,
+    "improvisados_rows": 18860
+  },
+  "rows_before_join": 21437261,
+  "rows_after_join": 21437261,
+  "join_row_count_match": true,
+  "pk_unique": true,
+  "sample_expansion": {
+    "populacao_expandida_pessoas": 202112873.51,
+    "domicilios_amostra_unicos": 7603502,
+    "domicilios_expandidos": 72469121.1,
+    "familias_amostra_unicas": 6550293,
+    "familias_expandidas": 62037363.76
+  },
+  "column_profiles": [
+    {
+      "column": "id_domicilio",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 7603502
+    },
+    {
+      "column": "id_morador",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 36
+    },
+    {
+      "column": "id_familia",
+      "parquet_type": "VARCHAR",
+      "null_rows": 1481595,
+      "null_pct": 6.9113,
+      "cardinality": 10
+    },
+    {
+      "column": "peso_pessoa",
+      "parquet_type": "DOUBLE",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 5451110
+    },
+    {
+      "column": "peso_domicilio",
+      "parquet_type": "DOUBLE",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 5451110
+    },
+    {
+      "column": "peso_familia",
+      "parquet_type": "DOUBLE",
+      "null_rows": 1481595,
+      "null_pct": 6.9113,
+      "cardinality": 4879472
+    },
+    {
+      "column": "geo_regiao",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 5
+    },
+    {
+      "column": "geo_uf",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 27
+    },
+    {
+      "column": "dem_sexo",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 2
+    },
+    {
+      "column": "dem_faixa_etaria",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 18
+    },
+    {
+      "column": "dem_idade_anos",
+      "parquet_type": "BIGINT",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 129
+    },
+    {
+      "column": "dem_cor_raca",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 6
+    },
+    {
+      "column": "dem_indigena",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 2
+    },
+    {
+      "column": "dem_quilombola",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 3
+    },
+    {
+      "column": "dem_estado_conjugal",
+      "parquet_type": "VARCHAR",
+      "null_rows": 2903588,
+      "null_pct": 13.5446,
+      "cardinality": 3
+    },
+    {
+      "column": "dem_migracao_nascimento",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 3
+    },
+    {
+      "column": "dem_deficiencia",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 3
+    },
+    {
+      "column": "dem_condicao_domicilio",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 19
+    },
+    {
+      "column": "dem_flag_responsavel",
+      "parquet_type": "BOOLEAN",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 2
+    },
+    {
+      "column": "dom_situacao_urbano_rural",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 2
+    },
+    {
+      "column": "dom_tipo",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 6
+    },
+    {
+      "column": "dom_condicao_ocupacao",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 7
+    },
+    {
+      "column": "dom_num_moradores",
+      "parquet_type": "BIGINT",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 34
+    },
+    {
+      "column": "dom_arranjo_familiar",
+      "parquet_type": "VARCHAR",
+      "null_rows": 1481595,
+      "null_pct": 6.9113,
+      "cardinality": 15
+    },
+    {
+      "column": "dom_num_criancas",
+      "parquet_type": "BIGINT",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 15
+    },
+    {
+      "column": "dom_material_paredes",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 7
+    },
+    {
+      "column": "cv_renda_per_capita",
+      "parquet_type": "DOUBLE",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 55250
+    },
+    {
+      "column": "cv_condicao_trabalho_14mais",
+      "parquet_type": "VARCHAR",
+      "null_rows": 4097660,
+      "null_pct": 19.1147,
+      "cardinality": 3
+    },
+    {
+      "column": "cv_escolaridade",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 4
+    },
+    {
+      "column": "cv_anos_estudo",
+      "parquet_type": "BIGINT",
+      "null_rows": 16096,
+      "null_pct": 0.0751,
+      "cardinality": 17
+    },
+    {
+      "column": "cv_alfabetizacao",
+      "parquet_type": "VARCHAR",
+      "null_rows": 1406217,
+      "null_pct": 6.5597,
+      "cardinality": 2
+    },
+    {
+      "column": "cv_agua_abastecimento",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 8
+    },
+    {
+      "column": "cv_agua_canalizada",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 3
+    },
+    {
+      "column": "cv_esgoto",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 8
+    },
+    {
+      "column": "cv_lixo",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 6
+    },
+    {
+      "column": "cv_internet",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 2
+    },
+    {
+      "column": "cv_maquina_lavar",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 2
+    },
+    {
+      "column": "cv_adensamento",
+      "parquet_type": "DOUBLE",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 133
+    },
+    {
+      "column": "cv_banheiro_exclusivo",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 7
+    },
+    {
+      "column": "mort_qtd_obitos",
+      "parquet_type": "BIGINT",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 8
+    },
+    {
+      "column": "mort_idade_min_obito",
+      "parquet_type": "BIGINT",
+      "null_rows": 20357772,
+      "null_pct": 94.9644,
+      "cardinality": 127
+    },
+    {
+      "column": "mort_qtd_obitos_prematuros",
+      "parquet_type": "BIGINT",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 5
+    },
+    {
+      "column": "mort_qtd_obitos_pandemia",
+      "parquet_type": "BIGINT",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 7
+    },
+    {
+      "column": "mort_ocorrencia_cat",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 3
+    },
+    {
+      "column": "mort_perfil_etario_cat",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 4
+    },
+    {
+      "column": "mort_periodo_cat",
+      "parquet_type": "VARCHAR",
+      "null_rows": 0,
+      "null_pct": 0.0,
+      "cardinality": 4
+    }
+  ],
+  "mort_distributions": {
+    "mort_ocorrencia_cat": {
+      "pessoas": [
+        {
+          "category": "Sem óbito",
+          "n_amostra": 20355830,
+          "pop_estimada": 192025188.0,
+          "pct": 95.0089
+        },
+        {
+          "category": "1 óbito",
+          "n_amostra": 1033760,
+          "pop_estimada": 9634533.0,
+          "pct": 4.7669
+        },
+        {
+          "category": "2 ou mais óbitos",
+          "n_amostra": 47671,
+          "pop_estimada": 453153.0,
+          "pct": 0.2242
+        }
+      ],
+      "domicilios": [
+        {
+          "category": "Sem óbito",
+          "n_amostra": 7191343,
+          "dom_estimados": 68621884.0,
+          "pct": 94.6912
+        },
+        {
+          "category": "1 óbito",
+          "n_amostra": 394621,
+          "dom_estimados": 3679458.0,
+          "pct": 5.0773
+        },
+        {
+          "category": "2 ou mais óbitos",
+          "n_amostra": 17538,
+          "dom_estimados": 167779.0,
+          "pct": 0.2315
+        }
+      ]
+    },
+    "mort_perfil_etario_cat": {
+      "pessoas": [
+        {
+          "category": "Sem óbito",
+          "n_amostra": 20355830,
+          "pop_estimada": 192025188.0,
+          "pct": 95.0089
+        },
+        {
+          "category": "Apenas idoso (60+)",
+          "n_amostra": 686549,
+          "pop_estimada": 6475561.0,
+          "pct": 3.2039
+        },
+        {
+          "category": "Óbito prematuro (< 60 anos)",
+          "n_amostra": 392940,
+          "pop_estimada": 3595286.0,
+          "pct": 1.7789
+        },
+        {
+          "category": "Óbito com idade ignorada",
+          "n_amostra": 1942,
+          "pop_estimada": 16839.0,
+          "pct": 0.0083
+        }
+      ],
+      "domicilios": [
+        {
+          "category": "Sem óbito",
+          "n_amostra": 7191343,
+          "dom_estimados": 68621884.0,
+          "pct": 94.6912
+        },
+        {
+          "category": "Apenas idoso (60+)",
+          "n_amostra": 277304,
+          "dom_estimados": 2603384.0,
+          "pct": 3.5924
+        },
+        {
+          "category": "Óbito prematuro (< 60 anos)",
+          "n_amostra": 134052,
+          "dom_estimados": 1237180.0,
+          "pct": 1.7072
+        },
+        {
+          "category": "Óbito com idade ignorada",
+          "n_amostra": 803,
+          "dom_estimados": 6673.0,
+          "pct": 0.0092
+        }
+      ]
+    },
+    "mort_periodo_cat": {
+      "pessoas": [
+        {
+          "category": "Sem óbito",
+          "n_amostra": 20355830,
+          "pop_estimada": 192025188.0,
+          "pct": 95.0089
+        },
+        {
+          "category": "Inclui período pandêmico (2020–2021)",
+          "n_amostra": 628163,
+          "pop_estimada": 5910205.0,
+          "pct": 2.9242
+        },
+        {
+          "category": "Apenas fora do pico pandêmico (2019/2022)",
+          "n_amostra": 453264,
+          "pop_estimada": 4177406.0,
+          "pct": 2.0669
+        },
+        {
+          "category": "Óbito com ano ignorado",
+          "n_amostra": 4,
+          "pop_estimada": 74.0,
+          "pct": 0.0
+        }
+      ],
+      "domicilios": [
+        {
+          "category": "Sem óbito",
+          "n_amostra": 7191343,
+          "dom_estimados": 68621884.0,
+          "pct": 94.6912
+        },
+        {
+          "category": "Inclui período pandêmico (2020–2021)",
+          "n_amostra": 239098,
+          "dom_estimados": 2252029.0,
+          "pct": 3.1076
+        },
+        {
+          "category": "Apenas fora do pico pandêmico (2019/2022)",
+          "n_amostra": 173058,
+          "dom_estimados": 1595160.0,
+          "pct": 2.2012
+        },
+        {
+          "category": "Óbito com ano ignorado",
+          "n_amostra": 3,
+          "dom_estimados": 47.0,
+          "pct": 0.0001
+        }
+      ]
+    }
+  }
+}

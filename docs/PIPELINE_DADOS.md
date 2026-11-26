@@ -1,30 +1,38 @@
 # Documentação do Pipeline de Dados — Censo Demográfico 2022
 
-Este documento descreve todo o fluxo de engenharia de dados usado para transformar os **108 arquivos CSV (~11,11 GiB descompactados)** da Base Controlada do Censo 2022 em um **dataset curado, tipado, decodificado e validado em Parquet**.
+> **Créditos:** Pipeline e documentação elaborados com auxílio do **Google Antigravity**.
+
+Este documento descreve todo o fluxo de engenharia de dados usado para transformar os **108 arquivos CSV (~11,11 GiB descompactados)** da Base Controlada do Censo 2022 em um **dataset curado, tipado, decodificado e validado em Parquet** e sua camada **Analytics (Gold)** para ICV + ACM.
 
 ---
 
 ## 1. Estrutura do Projeto
 
 ```text
-mestrado_analise_dados_qualitativos/
+base-censo/
 ├── pyproject.toml                       # Dependências Python (DuckDB, PyArrow, openpyxl) gerenciadas com uv
 ├── microdados_censo_amostra_2022_...zip # Base bruta IBGE (Acesso Controlado - intocada)
 ├── metadata/
 │   ├── schema_spec.json                 # Especificação completa gerada automaticamente do Layout + Descritores
-│   ├── pipeline_run_report.json         # Telemetria de execução por UF
-│   └── validation_report.json           # Resultado das auditorias automatizadas
+│   ├── pipeline_run_report.json         # Telemetria de execução por UF (curated)
+│   ├── validation_report.json           # Resultado das auditorias automatizadas (curated)
+│   └── analytics_icv_acm_report.json    # Sanity checks, perfil de NULLs e distribuições mort_* (analytics)
 ├── src/
 │   ├── 01_parse_metadata.py             # Etapa 1: extrai Layout + 7 Bancos de Descritores -> schema_spec.json
-│   ├── 02_build_curated_parquet.py      # Etapa 2: lê ZIP UF por UF via DuckDB -> grava Parquet ZSTD
+│   ├── 02_build_curated_parquet.py      # Etapa 2: lê ZIP UF por UF via DuckDB -> grava Parquet ZSTD (curated)
 │   ├── 03_validate_dataset.py           # Etapa 3: valida contagens vs CSV, unicidade de PK, pesos e rótulos
-│   └── 04_generate_docs.py              # Etapa 4: gera DICIONARIO_E_MODELAGEM.md e PIPELINE_DADOS.md
-├── data/curated/
-│   ├── pessoas_obt/uf=11..53/part.parquet   # OBT particionada por UF
-│   └── mortalidade/mortalidade.parquet      # Óbitos (grão original, sem agregação)
+│   ├── 04_generate_docs.py              # Etapa 4: gera DICIONARIO_E_MODELAGEM.md e PIPELINE_DADOS.md
+│   └── 05_build_analytics_icv_acm.py    # Etapa 5: curated -> analytics (Gold) para ICV + ACM + MODELAGEM_ANALYTICS_ICV_ACM.md
+├── data/
+│   ├── curated/                         # Camada Silver (imutável após validação)
+│   │   ├── pessoas_obt/uf=11..53/part.parquet   # OBT particionada por UF
+│   │   └── mortalidade/mortalidade.parquet      # Óbitos (grão original, sem agregação)
+│   └── analytics/                       # Camada Gold (pronta para consumo em R / Colab)
+│       └── censo2022_icv_acm.parquet            # Dataset enxuto ICV + ACM com mortalidade agregada por domicílio
 └── docs/
-    ├── DICIONARIO_E_MODELAGEM.md        # Grão, chaves, regras de pesos e 100% das variáveis documentadas
+    ├── DICIONARIO_E_MODELAGEM.md        # Grão, chaves, regras de pesos e 100% das variáveis curadas
     ├── PIPELINE_DADOS.md                # Este documento
+    ├── MODELAGEM_ANALYTICS_ICV_ACM.md   # Modelagem e justificativas da camada Analytics (Gold)
     └── (documentação oficial IBGE baixada do FTP)
 ```
 
@@ -32,7 +40,7 @@ mestrado_analise_dados_qualitativos/
 
 ## 2. Como Reexecutar o Pipeline do Zero
 
-Pré-requisito: `uv` instalado na máquina e o arquivo `.zip` original na raiz do projeto.
+Pré-requisito: `uv` instalado na máquina e o arquivo `.zip` original na raiz do projeto (ou os Parquets já prontos em `data/curated/` para rodar apenas a Etapa 5).
 
 ```powershell
 # 1. Criar/sincronizar ambiente virtual isolado (.venv)
@@ -41,14 +49,17 @@ uv sync
 # 2. Gerar especificação de metadados a partir do Layout e Descritores oficiais
 .\.venv\Scripts\python.exe src\01_parse_metadata.py
 
-# 3. Construir as tabelas Parquet (UF por UF direto do ZIP)
+# 3. Construir as tabelas Parquet curadas (UF por UF direto do ZIP)
 .\.venv\Scripts\python.exe src\02_build_curated_parquet.py
 
-# 4. Executar validações de integridade e pesos amostrais
+# 4. Executar validações de integridade e pesos amostrais (curated)
 .\.venv\Scripts\python.exe src\03_validate_dataset.py
 
-# 5. Regerar a documentação Markdown
+# 5. Regerar a documentação Markdown da camada curated
 .\.venv\Scripts\python.exe src\04_generate_docs.py
+
+# 6. Construir a camada Analytics (Gold) para ICV + ACM e gerar docs/MODELAGEM_ANALYTICS_ICV_ACM.md
+.\.venv\Scripts\python.exe src\05_build_analytics_icv_acm.py
 ```
 
 ---
